@@ -22,13 +22,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## by makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
-        m <- x$getinv()
-	if(!is.null(m)) {
+        inv_m <- x$getinv()
+	if(!is.null(inv_m)) {
 		message("getting cached data")
-		return(m)
+		return(inv_m)
 	}
 	data <- x$get()
-	m <- solve(data, ...)
-	x$setinv(m)
-	m
+	inv_m <- solve(data, ...)
+	x$setinv(inv_m)
+	inv_m
 }
